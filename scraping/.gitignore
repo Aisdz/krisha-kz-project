@@ -1,4 +1,4 @@
-*.csv
+*.csv ---- загрузил на всякий случай(krisha_final.csv), ранить скрипт будет долго(3-4 часа)
 *.txt
 .ipynb_checkpoints/
 __pycache__/
