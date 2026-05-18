@@ -11,8 +11,8 @@
 
 Модель предсказывает цену квартиры по её характеристикам на основе объявлений с krisha.kz.
 
-**Данные:** ~7 000 объявлений о продаже квартир по Казахстану  
-**Финальная модель:** XGBoost + log transform  
+**Данные:** ~7 000 объявлений о продаже квартир по Казахстану — CSV уже в папке [`scraping/`](../scraping/)  
+**Финальная модель:** XGBoost + log transform + tuning  
 **Test R²: 0.872 | MAE: 6 911 874 ₸ | CV R² (5-fold): 0.900 ± 0.005**
 
 ---
@@ -27,6 +27,8 @@
 | XGBoost + log transform | 7 050 796 | 0.872 |
 | **XGBoost финальный** | **6 911 874** | **0.872** |
 
+> Финальная модель — тот же log transform таргета, дополнительно: деревьев 300 → 500, lr 0.05 → 0.03, добавлен `min_child_weight=3`.
+
 CV R² по фолдам: `[0.896, 0.909, 0.895, 0.898, 0.901]`
 
 ---
@@ -35,26 +37,24 @@ CV R² по фолдам: `[0.896, 0.909, 0.895, 0.898, 0.901]`
 
 Топ-3 фичи объясняют ~59% важности модели:
 
-1. **`площадь`** - 29.6%
-2. **`flat.toilet`** — 15.3%
+1. **`площадь`** — 29.6%
+2. **`flat.toilet`** — 15.3% *(тип санузла: раздельный / совмещённый / 2 с/у и более — сильный прокси для класса жилья и планировки)*
 3. **`район`** — 13.8%
-   
-<img width="1193" height="646" alt="Screenshot 2026-05-18 at 14 35 05" src="https://github.com/user-attachments/assets/e844587f-7758-414f-83b3-4d61bafcc307" />
 
+<img width="1193" height="646" alt="Feature importance chart" src="https://github.com/user-attachments/assets/e844587f-7758-414f-83b3-4d61bafcc307" />
 
 ---
 
 ## 📁 Структура репозитория
 
 ```
-ml
+ml/
 ├── krisha_ml.ipynb      # EDA → feature engineering → обучение → сохранение
-├── predict.py              # инференс на сырых данных
+├── predict.py           # инференс на сырых данных
 ├── requirements.txt
 ├── .gitignore
 ├── LICENSE
 └── README.md
-
 ```
 
 > `xgb_model.pkl`, `cat_categories.pkl`, `train_medians.pkl` — в `.gitignore`, в репо не входят.
@@ -64,8 +64,8 @@ ml
 ## Установка
 
 ```bash
-git clone https://github.com/<your-username>/krisha-price-prediction
-cd krisha-price-prediction
+git clone https://github.com/Aisdz/krisha-kz-project
+cd krisha-kz-project/ml
 pip install -r requirements.txt
 ```
 
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 
 ### 1. Получить модель
 
-Положи `krisha_final.csv` в корень проекта и запусти ноутбук полностью — на выходе появятся три файла:
+CSV уже лежит в [`../scraping/krisha_final.csv`](../scraping/). Скопируй его в папку `ml/` и запусти `krisha_ml.ipynb` полностью — на выходе появятся три файла:
 
 ```
 xgb_model.pkl
@@ -93,7 +93,7 @@ train_medians.pkl
 import pandas as pd
 from predict import predict
 
-df = pd.read_csv('krisha_final.csv').head(5)
+df = pd.read_csv('../scraping/krisha_final.csv').head(5)
 prices = predict(df)
 
 for i, p in enumerate(prices):
