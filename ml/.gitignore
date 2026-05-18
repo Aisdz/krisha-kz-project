@@ -1,0 +1,20 @@
+# данные и модели — не в гит
+*.csv --- можно найти в папке scraping
+*.pkl
+*.joblib
+
+# jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+
+# системное
+.DS_Store
+Thumbs.db
