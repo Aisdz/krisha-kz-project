@@ -7,7 +7,7 @@
 ![R²](https://img.shields.io/badge/R²-0.872-brightgreen)
 ![MAE](https://img.shields.io/badge/MAE-6.9M%20₸-yellow)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
-![GitHub stars](https://img.shields.io/github/stars/<Aisdz>/<repo>?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Aisdz/krisha-kz-project?style=social)
 
 Модель предсказывает цену квартиры по её характеристикам на основе объявлений с krisha.kz.
 
