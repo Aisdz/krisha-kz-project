@@ -38,8 +38,8 @@ krisha-kz-project
 ### 1. Клонировать репозиторий
 
 ```bash
-git clone https://github.com/Aisdz/krisha-ml.git
-cd krisha-ml/telegram_bot
+git clone https://github.com/Aisdz/krisha-kz-project.git
+cd krisha-kz-project/telegram_bot
 ```
 
 ### 2. Создать виртуальное окружение
