@@ -10,6 +10,12 @@ Telegram-бот для оценки стоимости квартир в Каз�
 - **Проверить цену** — сравнение цены продавца с оценкой модели
 - Поддерживаемые города: Алматы, Астана, Шымкент, Караганда
 
+  <img width="1378" height="1049" alt="Screenshot 2026-05-27 at 15 02 42" src="https://github.com/user-attachments/assets/bd313828-3107-4c19-adac-5dfe33e2c1da" />
+
+  <img width="1378" height="1050" alt="Screenshot 2026-05-27 at 15 03 51" src="https://github.com/user-attachments/assets/ddc3bd22-bc9d-4633-955b-495a7d3388f3" />
+
+
+
 ---
 
 ## 🗂 Структура репозитория
