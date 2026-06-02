@@ -1,7 +1,8 @@
 # 🏠 Krisha ML Bot
 
 Telegram-бот для оценки стоимости квартир в Казахстане на основе XGBoost-модели, обученной на данных [krisha.kz](https://krisha.kz).
-[![Крыша Эксперт AI](https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white)](https://t.me/my_krisha_predict_bot)
+---
+[![Крыша Эксперт AI](https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=Крыша Эксперт AI&logoColor=white)](https://t.me/my_krisha_predict_bot)
 ---
 
 ## 📌 Возможности
